@@ -1,8 +1,4 @@
-# encoding=utf8
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
-
+PYTHONIOENCODING="UTF-8"  
 import fnmatch
 import os
 from config import ConfigParser
