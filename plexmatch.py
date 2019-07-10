@@ -1,18 +1,23 @@
-import datetime
-import errno
+import sys; sys.getdefaultencoding()
+import fnmatch
 import os
-import random
-import subprocess
-import sys
-import time
+from config import ConfigParser
+from plexapi.server import PlexServer
 
-import plexapi
-import ntpath
+baseurl = 'http://127.0.0.1:5631'
+token = 'gGtsTpapKfADQbe9WaYP'
+plex = PlexServer(baseurl, token)
 
-# encoding=utf8
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+movies = plex.library.section('Movies')
+for video in movies.all():
+    fname = unicode(str(video.locations).strip('[]').split("/")[6])
 
-import plexutils
+    for file in os.listdir('/home/hd15/sirk123au/mnt/gdrive/Media/Movies/'):
+        if fnmatch.fnmatch(file, fname):
+          #print ("\033[1;32;40m Matched {} ----> {}".format(fname , file))
+          match = True
+          break
+        else:
+          match = False
+    if not match: print (u"Not Matched {}".format(fname))
 
