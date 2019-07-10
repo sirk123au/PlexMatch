@@ -1,4 +1,0 @@
-plex:
-  baseurl: 'http://furies.bysh.me:5631'
-  token: 'gGtsTpapKfADQbe9WaYP'    # https://support.plex.tv/hc/en-us/articles/204059436-Finding-an-authentication-token-X-Plex-Token
-  search_folder: '/home/hd15/sirk123au/mnt/gdrive/Media/Movies/'
