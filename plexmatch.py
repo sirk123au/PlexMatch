@@ -31,6 +31,6 @@ for video in movies:
           break
         else: match = False
     if not match: 
-      print ("Not Matched {}".format(fname.replace(':','')))
+      print ("Not Matched {}".format(fname))
 else:
   print("All Movies Match Plex")
