@@ -12,3 +12,4 @@ syntax: glob
 .idea/
 .vscode
 config.yml
+movies.txt

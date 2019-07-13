@@ -9,6 +9,7 @@ config = ConfigParser()
 search_folder = config['plex']['search_folder']
 baseurl = config['plex']['baseurl']
 token = config['plex']['token']
+library_name = config['plex']['library_name']
 
 if os.name == 'nt': os.system('cls') 
 else: os.system('clear')
@@ -16,7 +17,7 @@ try: plex = PlexServer(baseurl, token)
 except: raise Exception("No Plex server found at: {base_url}".format(base_url=baseurl))
 
 print("Reading Plex Movie List")
-movies = plex.library.section('Movies').all()
+movies = plex.library.section(library_name).all()
 print("Found {} Movies on Plex".format(len(movies)))
 movie_local = os.listdir(search_folder)
 print("Found {} in Local Directory".format(len(movie_local)))
