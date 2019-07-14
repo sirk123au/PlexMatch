@@ -24,7 +24,8 @@ print("Found {} in Local Directory".format(len(movie_local)))
 
 for video in movies:
     flocation = video.locations[0]
-    fname = flocation.strip('[]').split("/")[4]
+    fname =  os.path.split(os.path.dirname(flocation))[1]
+    #fname = flocation.strip('[]').split("/")[4]
     for file in movie_local:
         if fnmatch.fnmatch(file, fname):
           print (r"Matched {} ----> {}".format(fname , file))          
