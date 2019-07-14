@@ -1,4 +1,4 @@
-PYTHONIOENCODING="UTF-8"  
+PYTHONIOENCODING="UTF-8"
 import fnmatch
 import os
 import time
@@ -11,7 +11,7 @@ baseurl = config['plex']['baseurl']
 token = config['plex']['token']
 library_name = config['plex']['library_name']
 
-if os.name == 'nt': os.system('cls') 
+if os.name == 'nt': os.system('cls')
 else: os.system('clear')
 try: plex = PlexServer(baseurl, token)
 except: raise Exception("No Plex server found at: {base_url}".format(base_url=baseurl))
@@ -23,16 +23,16 @@ movie_local = os.listdir(search_folder)
 print("Found {} in Local Directory".format(len(movie_local)))
 
 for video in movies:
-    flocation = video.locations[0]
-    fname =  os.path.split(os.path.dirname(flocation))[1]
-    #fname = flocation.strip('[]').split("/")[4]
+    fname =  os.path.split(os.path.dirname(video.locations[0]))[1]
     for file in movie_local:
         if fnmatch.fnmatch(file, fname):
-          print (r"Matched {} ----> {}".format(fname , file))          
+          print (r"Matched {} ----> {}".format(fname , file))
+          with open("movies.txt", 'a') as file_handler:
+            file_handler.write("Matched {} ----> {}\n".format(fname , file))
           match = True
           break
         else: match = False
-    if not match: 
+    if not match:
       print ("Not Matched {}".format(fname))
 else:
   print("All Movies Match Plex")
