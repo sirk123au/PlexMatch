@@ -26,7 +26,7 @@ for video in movies:
     fname =  os.path.split(os.path.dirname(video.locations[0]))[1]
     for file in movie_local:
         if fnmatch.fnmatch(file, fname):
-          # print (r"Matched {} ----> {}".format(fname , file))
+          print (r"Matched {} ----> {}".format(fname , file))
           with open("movies.txt", 'a') as file_handler:
             file_handler.write("Matched {} ----> {}\n".format(fname , file))
           match = True
